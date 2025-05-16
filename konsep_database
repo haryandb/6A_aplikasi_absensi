@@ -1,0 +1,24 @@
+
+user
+id
+name
+email
+password
+role (admin/mahasiswa)
+created_at (default)
+update_at (default)
+
+mahasiswa
+id
+nama_lengkap (varchar 50)
+nim
+jurusan
+alamat (text)
+jenis_kelamin (enum)
+
+absensi
+id
+mahasiswa_id
+tanggal
+status (izin, sakit, hadir, alpa)
+waktu

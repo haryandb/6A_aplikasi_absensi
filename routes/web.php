@@ -13,7 +13,14 @@ Route::get('/', function () {
 
 Route::get('/admin', [AdminController::class, "index"]); // ubah
 
-Route::get('/admin/pengguna', [PenggunaController::class, "index"]);
+Route::get('/admin/pengguna', [PenggunaController::class, "index"])
+    ->name('admin.pengguna.index');
+
+Route::get('/admin/pengguna/tambah', [PenggunaController::class, "insert"])
+    ->name('admin.pengguna.tambah');
+
+Route::post('/admin/pengguna', [PenggunaController::class, "store"])
+    ->name('admin.pengguna.store');
 
 Route::get('/admin/mahasiswa', [MahasiswaController::class, "index"]);
 

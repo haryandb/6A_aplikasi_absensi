@@ -43,8 +43,17 @@
         <div class="card">
             <h5 class="card-header">Data user</h5>
             <div class="card-body">
+
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+
                 <div class="d-flex flex-row mb-3">
-                    <a href="#" class="btn btn-primary">Tambah</a>
+                    <a href="{{ route('admin.pengguna.tambah') }}" class="btn btn-primary">Tambah</a>
                     <div class="input-group ms-2">
                         <input type="text" class="form-control" placeholder="Cari disini"
                             aria-label="Recipient’s username" aria-describedby="button-addon2">

@@ -9,7 +9,9 @@ class PenggunaController extends Controller
 {
     public function index()
     {
-        return view('admin.pengguna.index');
+        $penggunas = User::paginate(10);
+
+        return view('admin.pengguna.index', compact('penggunas'));
     }
 
     public function insert()

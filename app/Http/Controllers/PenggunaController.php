@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class PenggunaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $penggunas = User::paginate(10);
+        $penggunas = User::where('name', 'like', '%' . $request->s . '%')->paginate(10);
 
         return view('admin.pengguna.index', compact('penggunas'));
     }

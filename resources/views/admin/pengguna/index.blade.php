@@ -55,8 +55,10 @@
                 <div class="d-flex flex-row mb-3">
                     <a href="{{ route('admin.pengguna.tambah') }}" class="btn btn-primary">Tambah</a>
                     <div class="input-group ms-2">
-                        <input type="text" class="form-control" placeholder="Cari disini"
-                            aria-label="Recipient’s username" aria-describedby="button-addon2">
+                        <form>
+                            <input type="text" class="form-control" placeholder="Cari disini"
+                                aria-describedby="button-addon2" name="s" value="{{ request()->s ?? '' }}">
+                        </form>
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
                     </div>
                 </div>

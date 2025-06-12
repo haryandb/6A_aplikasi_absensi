@@ -11,7 +11,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', [AdminController::class, "index"]); // ubah
+Route::get('/admin', [AdminController::class, "index"])->name('admin.index');
 
 Route::get('/admin/pengguna', [PenggunaController::class, "index"])
     ->name('admin.pengguna.index');
@@ -31,9 +31,8 @@ Route::post('/admin/pengguna/{id}', [PenggunaController::class, "update"])
 Route::delete('/admin/pengguna/{id}/hapus', [PenggunaController::class, "destroy"])
     ->name('admin.pengguna.hapus');
 
-Route::get('/admin/mahasiswa', [MahasiswaController::class, "index"]);
+Route::get('/admin/mahasiswa', [MahasiswaController::class, "index"])->name('admin.mahasiswa.index');
 
-Route::get('/admin/absensi', [AbsensiController::class, "index"]);
-
+Route::get('/admin/absensi', [AbsensiController::class, "index"])->name('admin.absensi.index');
 
 Route::get('/bootstrap', [BootstrapController::class, 'index']);

@@ -24,13 +24,20 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'admin.index' ? 'active' : '' }}"
+                            aria-current="page" href="{{ route('admin.index') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Data user</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'admin.pengguna.index' ? 'active' : '' }}"
+                            href="{{ route('admin.pengguna.index') }}">Data user</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Data masyarakat</a>
+                        <a class="nav-link {{ Route::currentRouteName() == 'admin.mahasiswa.index' ? 'active' : '' }}"
+                            href="{{ route('admin.mahasiswa.index') }}">Data mahasiswa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'admin.absensi.index' ? 'active' : '' }}"
+                            href="{{ route('admin.absensi.index') }}">Data absensi</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

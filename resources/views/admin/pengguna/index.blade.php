@@ -79,8 +79,16 @@
                                 <td>{{ $data->name }}</td>
                                 <td>{{ $data->email }}</td>
                                 <td>
-                                    <button class="btn btn-warning btn-sm">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Hapus</button>
+                                    <a href="{{ route('admin.pengguna.edit', $data->id) }}"
+                                        class="btn btn-warning btn-sm">Edit</a>
+
+                                    <form action="{{ route('admin.pengguna.hapus', $data->id) }}" method="post"
+                                        class="d-inline"
+                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger btn-sm">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -22,6 +22,15 @@ Route::get('/admin/pengguna/tambah', [PenggunaController::class, "insert"])
 Route::post('/admin/pengguna', [PenggunaController::class, "store"])
     ->name('admin.pengguna.store');
 
+Route::get('/admin/pengguna/{id}/edit', [PenggunaController::class, "edit"])
+    ->name('admin.pengguna.edit');
+
+Route::post('/admin/pengguna/{id}', [PenggunaController::class, "update"])
+    ->name('admin.pengguna.update');
+
+Route::delete('/admin/pengguna/{id}/hapus', [PenggunaController::class, "destroy"])
+    ->name('admin.pengguna.hapus');
+
 Route::get('/admin/mahasiswa', [MahasiswaController::class, "index"]);
 
 Route::get('/admin/absensi', [AbsensiController::class, "index"]);

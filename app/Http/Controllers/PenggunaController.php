@@ -34,4 +34,40 @@ class PenggunaController extends Controller
     {
         return view('admin.pengguna.insert');
     }
+
+    public function edit($id)
+    {
+        $pengguna = User::findOrFail($id);
+
+        return view('admin.pengguna.edit', compact('pengguna'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $pengguna = User::findOrFail($id);
+
+        $validData = collect($request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email,' . $pengguna->id,
+            'password' => 'nullable|confirmed',
+        ]));
+
+        if ($validData['password']) {
+            $validData['password'] = bcrypt($validData['password']);
+        } else {
+            unset($validData['password']);
+        }
+
+        $pengguna->update($validData->toArray());
+
+        return redirect()->route('admin.pengguna.index')->with('success', 'Pengguna berhasil diperbarui.');
+    }
+
+    public function destroy($id)
+    {
+        $pengguna = User::findOrFail($id);
+        $pengguna->delete();
+
+        return redirect()->route('admin.pengguna.index')->with('success', 'Pengguna berhasil dihapus.');
+    }
 }

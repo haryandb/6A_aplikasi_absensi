@@ -14,10 +14,6 @@ class PenggunaController extends Controller
         return view('admin.pengguna.index', compact('penggunas'));
     }
 
-    public function insert()
-    {
-        return view('admin.pengguna.insert');
-    }
 
     public function store(Request $request)
     {
@@ -32,5 +28,10 @@ class PenggunaController extends Controller
         $user = User::create($validData->toArray());
 
         return redirect()->route('admin.pengguna.index')->with('success', 'Pengguna berhasil ditambahkan.');
+    }
+
+    public function insert()
+    {
+        return view('admin.pengguna.insert');
     }
 }

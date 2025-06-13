@@ -8,6 +8,6 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        return "halaman mahasiswa dari controller";
+        return view('admin.mahasiswa.index');
     }
 }
